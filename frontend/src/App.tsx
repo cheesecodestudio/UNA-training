@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import EquipoForm from "./EquipoForm";
+import ReservaList from "./ReservaList";
 
 export type Equipo = {
   id: number;
@@ -145,6 +146,7 @@ function App() {
           </li>
         ))}
       </ul>
+      <ReservaList />
     </main>
   );
 }

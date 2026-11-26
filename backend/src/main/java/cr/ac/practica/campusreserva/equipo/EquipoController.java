@@ -1,5 +1,7 @@
 package cr.ac.practica.campusreserva.equipo;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import cr.ac.practica.campusreserva.equipo.dto.CrearEquipoRequest;
 import cr.ac.practica.campusreserva.equipo.dto.EquipoPaginaResponse;
 import cr.ac.practica.campusreserva.equipo.dto.EquipoResponse;
+import cr.ac.practica.campusreserva.equipo.dto.EquipoSelectResponse;
 import jakarta.validation.Valid;
 
 @RestController
@@ -52,5 +55,10 @@ public class EquipoController {
             @RequestParam(defaultValue = "20") int size,
             @RequestParam(defaultValue = "id") String sort) {
         return equipoService.listarPaginado(page, size, sort);
+    }
+
+    @GetMapping("/select")
+    public List<EquipoSelectResponse> equipoSelect() {
+        return equipoService.selectEquipos();
     }
 }

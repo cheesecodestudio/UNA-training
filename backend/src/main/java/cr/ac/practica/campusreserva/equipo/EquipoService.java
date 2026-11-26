@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import cr.ac.practica.campusreserva.equipo.dto.CrearEquipoRequest;
 import cr.ac.practica.campusreserva.equipo.dto.EquipoPaginaResponse;
 import cr.ac.practica.campusreserva.equipo.dto.EquipoResponse;
+import cr.ac.practica.campusreserva.equipo.dto.EquipoSelectResponse;
 import cr.ac.practica.campusreserva.exception.OwnException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -28,6 +29,14 @@ public class EquipoService {
                         equipo.getCodigo(),
                         equipo.getActivo() == 1,
                         ""))
+                .toList();
+    }
+
+    public List<EquipoSelectResponse> selectEquipos() {
+        return equipoRepository.findAll().stream()
+                .map(equipo -> new EquipoSelectResponse(
+                        equipo.getId(),
+                        equipo.getNombre()))
                 .toList();
     }
 

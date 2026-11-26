@@ -1,5 +1,7 @@
 package cr.ac.practica.campusreserva.usuario;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import cr.ac.practica.campusreserva.usuario.dto.CrearUsuarioRequest;
 import cr.ac.practica.campusreserva.usuario.dto.UsuarioPaginaResponse;
 import cr.ac.practica.campusreserva.usuario.dto.UsuarioResponse;
+import cr.ac.practica.campusreserva.usuario.dto.UsuarioSelectResponse;
 import jakarta.validation.Valid;
 
 @RestController
@@ -52,5 +55,10 @@ public class UsuarioController {
             @RequestParam(defaultValue = "20") int size,
             @RequestParam(defaultValue = "id") String sort) {
         return usuarioService.listarPaginado(page, size, sort);
+    }
+
+    @GetMapping("/select")
+    public List<UsuarioSelectResponse> usuariosSelect() {
+        return usuarioService.selectUsuarios();
     }
 }

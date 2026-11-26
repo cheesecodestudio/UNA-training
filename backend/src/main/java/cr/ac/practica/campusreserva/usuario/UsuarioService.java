@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import cr.ac.practica.campusreserva.usuario.dto.CrearUsuarioRequest;
 import cr.ac.practica.campusreserva.usuario.dto.UsuarioPaginaResponse;
 import cr.ac.practica.campusreserva.usuario.dto.UsuarioResponse;
+import cr.ac.practica.campusreserva.usuario.dto.UsuarioSelectResponse;
 import cr.ac.practica.campusreserva.exception.OwnException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -29,6 +30,14 @@ public class UsuarioService {
                         usuario.getTipo(),
                         usuario.isActivo(),
                         ""))
+                .toList();
+    }
+
+    public List<UsuarioSelectResponse> selectUsuarios() {
+        return usuarioRepository.findAll().stream()
+                .map(usuario -> new UsuarioSelectResponse(
+                        usuario.getId(),
+                        usuario.getNombre()))
                 .toList();
     }
 

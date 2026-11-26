@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import cr.ac.practica.campusreserva.reserva.dto.CrearReservaRequest;
 import cr.ac.practica.campusreserva.reserva.dto.ReservaPaginaResponse;
 import cr.ac.practica.campusreserva.reserva.dto.ReservaResponse;
+import cr.ac.practica.campusreserva.usuario.dto.UsuarioSelectResponse;
 import jakarta.validation.Valid;
 
 @RestController
