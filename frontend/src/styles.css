@@ -1,0 +1,12 @@
+.paging {
+    display: flex;
+    list-style: none;
+}
+
+.paging > li {
+    margin: 0 0.5rem
+}
+
+.active {
+    background-color: aquamarine;        
+}
