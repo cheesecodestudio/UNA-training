@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import EquipoForm from "./EquipoForm";
 import ReservaList from "./ReservaList";
+import ReporteUsoEquipo from "./ReporteUsoEquipo";
 
 export type Equipo = {
   id: number;
@@ -147,6 +148,7 @@ function App() {
         ))}
       </ul>
       <ReservaList />
+      <ReporteUsoEquipo />
     </main>
   );
 }
